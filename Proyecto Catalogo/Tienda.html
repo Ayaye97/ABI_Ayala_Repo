@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Yaye Components</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="icon" href="images/logo-yaye-blanco.webp" type="image/x-icon">
+</head>
+<body class="font-sans bg-gradient-to-r from-blue-900 to-blue-700 text-gray-100 min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 flex justify-between items-center py-4 px-8 bg-blue-900 text-white shadow-lg">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-2">
+            <img src="images/logo-yaye-blanco.webp" alt="Logo de Yaye Components" class="w-10 h-10">
+            <span class="text-2xl font-bold text-gray-100">Components</span>
+        </a>
+        <div class="flex space-x-4">
+            <!-- Iconos de redes sociales -->
+            <a href="https://facebook.com" target="_blank" class="hover:text-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-white hover:text-blue-500" viewBox="0 0 24 24">
+                    <path d="M22.675 0h-21.35C.597 0 0 .597 0 1.325v21.351C0 23.403.597 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.099 2.795.143v3.24h-1.918c-1.504 0-1.796.715-1.796 1.763v2.31h3.587l-.467 3.622h-3.12V24h6.116c.729 0 1.325-.597 1.325-1.324V1.325C24 .597 23.403 0 22.675 0z"/>
+                </svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="hover:text-pink-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-white hover:text-pink-500" viewBox="0 0 448 512">
+                    <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-1.7-35.3-9.9-66.7-36.2-92.9s-57.6-34.5-92.9-36.2c-36.6-2.1-146.6-2.1-183.2 0-35.3 1.7-66.7 9.9-92.9 36.2s-34.5 57.6-36.2 92.9c-2.1 36.6-2.1 146.6 0 183.2 1.7 35.3 9.9 66.7 36.2 92.9s57.6 34.5 92.9 36.2c36.6 2.1 146.6 2.1 183.2 0 35.3-1.7 66.7-9.9 92.9-36.2s34.5-57.6 36.2-92.9c2.1-36.6 2.1-146.6 0-183.2zm-48.5 224c-7.8 19.6-22.9 34.7-42.5 42.5-29.4 11.7-99.2 9-132 9s-102.6 2.6-132-9c-19.6-7.8-34.7-22.9-42.5-42.5-11.7-29.4-9-99.2-9-132s-2.6-102.6 9-132c7.8-19.6 22.9-34.7 42.5-42.5 29.4-11.7 99.2-9 132-9s102.6-2.6 132 9c19.6 7.8 34.7 22.9 42.5 42.5 11.7 29.4 9 99.2 9 132s2.7 102.6-9 132z"/>
+                </svg>
+            </a>
+            <!-- Icono de Twitter -->
+            <a href="https://twitter.com" target="_blank" class="hover:text-blue-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-current text-white hover:text-blue-400" viewBox="0 0 24 24">
+                    <path d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-8.384 4.482A13.94 13.94 0 011.671 3.149a4.916 4.916 0 001.523 6.573 4.897 4.897 0 01-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 01-2.224.084 4.918 4.918 0 004.6 3.417A9.867 9.867 0 010 21.543a13.94 13.94 0 007.548 2.212c9.058 0 14.01-7.513 14.01-14.01 0-.213-.005-.425-.014-.636A10.025 10.025 0 0024 4.557z"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Agregar barra de búsqueda para poder filtrar los productos -->
+    <section class="max-w-7xl mx-auto px-6 mb-6">   
+        <div class="flex flex-col gap-4 items-center">
+            <!-- Título y subtítulo -->
+            <h1 class="text-4xl font-bold text-center text-white">Catálogo de Productos</h1>
+            <p class="text-lg text-center text-gray-300">Explora nuestra selección de productos disponibles</p>
+            <!-- Input de búsqueda -->
+            <input
+                id="busqueda"
+                type="text"
+                placeholder="Buscar productos..."
+                class="w-full max-w-md px-4 py-2 border-2 border-blue-400 rounded-md"
+            />
+
+            <!-- Botones -->
+            <div id="categorias" class="flex flex-wrap gap-3 justify-center">  
+                <!-- Los botones se generarán dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenedor de Productos -->
+    <main class="max-w-7xl mx-auto px-6 pb-16 flex-1">
+        <div
+        id="productos"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        >
+        <!-- Productos se cargaran aqui dinamicamente -->
+        
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-gray-300 text-center py-4">
+        &copy; 2025 Yaye Components. Todos los derechos reservados.
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
