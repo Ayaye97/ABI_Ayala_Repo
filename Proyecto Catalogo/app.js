@@ -163,6 +163,6 @@ function mostrarProductos(productos) {
 inputBusqueda.addEventListener("input", filtrarProductos);
 
 document.addEventListener("DOMContentLoaded", () => {
-    cargarProductos();
+    cargarProductos(); // Cargar los productos al cargar la página
     cargarCategorias(); // Cargar las categorías al cargar la página
 });
