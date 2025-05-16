@@ -154,9 +154,18 @@
         </div>
     </section>
 
+
+    <!-- Script login -->
+    <script>
+    if(!localStorage.getItem('token')) {
+        window.location.href = 'login.html';
+    }
+    </script>
+
     <!-- Footer -->
     <footer class="bg-blue-900 text-gray-300 text-center py-4">
         &copy; 2025 Yaye Components. Todos los derechos reservados.
     </footer>
+    
 </body>
 </html>
