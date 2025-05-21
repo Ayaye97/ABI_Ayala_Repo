@@ -58,10 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
-
-
-
 //LOGICA DE PRODUCTOS
 async function cargarProductos() {
     try {
@@ -158,6 +154,52 @@ function mostrarProductos(productos) {
         `;
         contenedorProductos.appendChild(productoDiv);
     });
+}
+
+//Mostrar Detalle de los Prdoductos
+function mostrarProductos(productos) {
+    const contenedor = document.getElementById('productos');
+    contenedor.innerHTML = '';
+    productos.forEach(producto => {
+        const div = document.createElement('div');
+        div.className = "bg-white rounded-lg shadow-md p-4 flex flex-col items-center";
+        div.innerHTML = `
+            <img src="${producto.image}" alt="${producto.title}" class="w-32 h-32 object-contain mb-4">
+            <h3 class="text-blue-700 font-semibold mb-2 text-center">${producto.title}</h3>
+            <p class="text-black text-center mb-2">$${producto.price}</p>
+            <button onclick="window.location.href='detalle.html?id=${producto.id}'"
+                class="mt-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+                Detalles
+            </button>
+        `;
+        contenedor.appendChild(div);
+    });
+}
+
+//Detalle de los Productos.
+if (window.location.pathname.endsWith('detalle.html')) {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const contenedor = document.getElementById('detalleProducto');
+    if (!id) {
+        contenedor.innerHTML = '<p>No se encontró el producto.</p>';
+    } else {
+        fetch(`https://fakestoreapi.com/products/${id}`)
+            .then(res => res.json())
+            .then(producto => {
+                contenedor.innerHTML = `
+                    <img src="${producto.image}" alt="${producto.title}" class="w-48 h-48 object-contain mx-auto mb-4">
+                    <h2 class="text-2xl font-bold mb-2">${producto.title}</h2>
+                    <p class="text-xl text-blue-700 font-semibold mb-2">$${producto.price}</p>
+                    <p class="mb-2"><span class="font-bold">Categoría:</span> ${producto.category}</p>
+                    <p class="mb-4">${producto.description}</p>
+                    <a href="Tienda.html" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Volver</a>
+                `;
+            })
+            .catch(() => {
+                contenedor.innerHTML = '<p>Error al cargar el producto.</p>';
+            });
+    }
 }
 
 inputBusqueda.addEventListener("input", filtrarProductos);

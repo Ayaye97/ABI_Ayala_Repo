@@ -2,22 +2,18 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda - Yaye Components</title>
+    <title>Contacto - Yaye Components</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="icon" href="images/logo-yaye-blanco.webp" type="image/x-icon">
-</head>
-<body class="font-sans bg-gradient-to-r from-blue-900 to-blue-700 text-gray-100 min-h-screen flex flex-col">
-
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 flex justify-between items-center py-4 px-8 bg-blue-900 text-white shadow-lg">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center space-x-2">
+        <!-- Logo de la empresa -->
+        <a href="#" class="flex items-center space-x-2">
             <img src="images/logo-yaye-blanco.webp" alt="Logo de Yaye Components" class="w-10 h-10">
-            <span class="text-2xl font-bold text-gray-100">Components</span>
+            <span class="text-2xl font-bold">Components</span>
         </a>
         <div class="flex space-x-6">
             <a href="index.html" class="hover:text-blue-300">Inicio</a>
+            <a href="Tienda.html" class="hover:text-blue-300">Tienda</a>
             <a href="contacto.html" class="hover:text-blue-300">Contacto</a>
         </div>
         <div class="flex space-x-4">
@@ -45,39 +41,47 @@
         </div>
     </nav>
 
-    <!-- Agregar barra de búsqueda para poder filtrar los productos -->
-    <section class="max-w-7xl mx-auto px-6 mb-6">   
-        <div class="flex flex-col gap-4 items-center">
-            <!-- Título y subtítulo -->
-            <h1 class="text-4xl font-bold text-center text-white">Catálogo de Productos</h1>
-            <p class="text-lg text-center text-gray-300">Explora nuestra selección de productos disponibles</p>
-            <!-- Input de búsqueda -->
-            <input
-                id="busqueda"
-                type="text"
-                placeholder="Buscar productos..."
-                class="w-full max-w-md px-4 py-2 border-2 border-blue-400 rounded-md"
-            />
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-blue-900 to-blue-700 text-gray-200 min-h-screen flex flex-col">
+    <main class="flex-1 flex flex-col items-center justify-center">
+        <h1 class="text-3xl font-bold mb-6">Nuestra Ubicación</h1>
+        <div id="map"></div>
+        <a href="index.html" class="mt-6 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Volver al inicio</a>
+    </main>
 
-            <!-- Botones -->
-            <div id="categorias" class="flex flex-wrap gap-3 justify-center">  
-                <!-- Los botones se generarán dinámicamente -->
-            </div>
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="bg-gradient-to-r from-blue-800 to-blue-600 py-16 text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-white mb-6">Contáctanos</h2>
+            <p class="text-gray-300 mb-8">¿Tienes preguntas? Envíanos un mensaje o visita nuestras redes sociales.</p>
+            <form action="procesar_contacto.php" method="POST" class="max-w-lg mx-auto">
+                <div class="mb-4">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" class="w-full p-3 rounded bg-blue-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <input type="email" id="email" name="email" placeholder="Correo Electrónico" class="w-full p-3 rounded bg-blue-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-4">
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Mensaje" class="w-full p-3 rounded bg-blue-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                </div>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full">
+                    Enviar
+                </button>
+            </form>
         </div>
     </section>
 
-    <!-- Contenedor de Productos -->
-    <main class="max-w-7xl mx-auto px-6 pb-16 flex-1">
-        <div
-        id="productos"
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-        >
-        <!-- Productos se cargaran aqui dinamicamente -->
-        
-        </div>
-    </main>
+    <footer class="bg-blue-900 text-gray-300 text-center py-4">
+        &copy; 2025 Yaye Components. Todos los derechos reservados.
+    </footer>
 
-    <!-- Al final del body, antes del </body> -->
     <script>
         // Mostrar botón solo si hay token
         const logoutBtn = document.getElementById('logoutBtn');
@@ -95,10 +99,22 @@
         }
     </script>
 
-    <!-- Footer -->
-    <footer class="bg-blue-900 text-gray-300 text-center py-4">
-        &copy; 2025 Yaye Components. Todos los derechos reservados.
-    </footer>
-    <script src="app.js"></script>
+    <script>
+        function initMap() {
+            const quito = { lat: -0.1806532, lng: -78.4678382 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 13,
+                center: quito,
+            });
+            new google.maps.Marker({
+                position: quito,
+                map,
+                title: "Tienda Principal",
+            });
+        }
+    </script>
+
+    <!-- Script para cargar el mapa de Google Maps con CLAVE GENERICA -->
+    <script src="https://maps.googleapis.com/maps/api/js?AIzaSyD-7tWQ5w3b1Q6Qw4wQw4wQw4wQw4wQw4w&callback=initMap" async defer></script>
 </body>
 </html>
